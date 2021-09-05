@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bayer Food Akinator</title>
+</head>
+
+<body id="'home">
+    {% if result %}
+        <h1>당신은 {{ result }}을(를) 생각했군요!</h1>
+        <h2>확률 : {{ probability }}</h2>
+    {% else %}
+        <h1>{{ question_text }}</h1>
+        <form>
+            <input type="hidden" name="question" value="{{ question }}" />
+            <label><input type="radio" name="answer" value="1" required>네</label><br />
+            <label><input type="radio" name="answer" value="0" required>아니오</label><br />
+            <label><input type="radio" name="answer" value="0.5" required>모르겠습니다.</label><br />
+            <label><input type="radio" name="answer" value="0.75" required>아마 그럴겁니다.</label><br />
+            <label><input type="radio" name="answer" value="0.25" required>아마 아닐겁니다.</label><br />
+            <br />
+            <input type="submit" value="Next" />
+        </form>
+        <h2>확률 : {{ probability }}</h2>
+    {% endif %}
+
+</body>
+</html>
