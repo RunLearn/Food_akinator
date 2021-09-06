@@ -31,7 +31,7 @@ def index():
         return render_template('index.html', result=result['name'], probability=result['probability'])
     else:
         next_question = random.choice(questions_left)
-        return render_template('index.html', question=next_question, question_text=questions[next_question],probability=probabilities)
+    return render_template('index.html', question=next_question, question_text=questions[next_question],probability=probabilities)
 
 
 if __name__ == '__main__':
