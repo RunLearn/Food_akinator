@@ -49,3 +49,7 @@ def food_answer(food, question):
     if question in food['answers']:
         return food['answers'][question]
     return 0.5
+
+def question_choice(question,answer):
+    return 0
+
