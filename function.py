@@ -53,3 +53,5 @@ def food_answer(food, question):
 def question_choice(question,answer):
     return 0
 
+def food_img(result):
+    return (f'img/{result}.png')

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import random
 from data import questions
-from function import calculate_probabilites
+from function import calculate_probabilites, food_img
 
 app = Flask(__name__)
 
@@ -26,9 +26,9 @@ def index():
 
     result = sorted(probabilities, key=lambda p: p['probability'], reverse=True)[0]
 
-    if len(questions_left) == 0 or (result['probability'] > 0.9):
+    if len(questions_left) == 0 or (result['probability'] > 0.5):
 
-        return render_template('index.html', result=result['name'], probability=result['probability'])
+        return render_template('index.html', result=result['name'], probability=result['probability'],result_img = food_img(result['name']))
     else:
         next_question = random.choice(questions_left)
     return render_template('index.html', question=next_question, question_text=questions[next_question],probability=probabilities)
