@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Bayer Food Akinator</title>
@@ -24,7 +24,11 @@
 
 .bmfont {
     font-family: 'BMJUA', 'cursive';
-    background-color: lemonchiffon;
+    background-image: url("/static/img/bac2.jpg");
+    height: 110vh;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .pick {
@@ -35,6 +39,7 @@
     max-width: 300px;
     max-height: 300px;
     text-align: center;
+
 }
 .linemode{
     outline: solid 1px red;
@@ -52,13 +57,13 @@
 </style>
 </head>
 
-<body id="home" class="bmfont">
+<body id="home" class="bmfont" >
 <div class="text-center mw-500">{# 최상단 제목 #}
     <div>
         <br>
         <br>
         <h1>
-            오늘 뭐 먹지?
+            <img src="/static/img/cutlery.png" style="max-height: 35px; max-width: 35px; margin-right: 3px">   오늘 뭐 먹지?
         </h1>
     </div>
 </div>
@@ -66,29 +71,29 @@
         {% if result %}
 
             <h3 class="text-center"><font color="#006400"></font></h3>
-            <br>
+
             <form class="text-center">
                 <div>
-                    <img src="{{ url_for('static', filename=img/햄버거.png) }}" class="img-div">
+                    <img src="{{ url_for('static', filename=result_img) }}" class="img-div rounded">
                 </div>
             </form>
             <br>
             <br>
-            <h2 class="text-center">당신은 {{ result }}을(를) 생각했군요!</h2>
+            <h2 class="text-center">오늘은 {{ result }}!!!🙌</h2>
             <br>
             <br>
             <form class="text-center">
-                <div class="btn btn-outline-success rounded-pill px-5">
-                    <a href="https://m.place.naver.com/restaurant/list?x=126.8484023&y=35.1571047&query={{result}}&sessionId=jDpDmL%2FGas5j45s%2BnreWyw%3D%3D&level=bottom&entry=pll"><font color="#006400">가까운 매장 찾아보기</font></a>
+                <div class="btn btn-outline-success rounded-pill px-5" style="background-color: whitesmoke">
+                    <a href="https://m.place.naver.com/restaurant/list?x=126.8484023&y=35.1571047&query={{result}}&sessionId=jDpDmL%2FGas5j45s%2BnreWyw%3D%3D&level=bottom&entry=pll"><font color="#55C96C">네이버맵</font> <font color="black">근처 매장찾기</font></a>
                 </div>
                 <br>
                 <br>
                 <br>
-                <span class="btn btn-outline-primary rounded-pill px-3 mx-2">
-                    <a href="https://www.baemin.com/"><font color="#00008b">배달의민족 주문하기</font></a>
+                <span class="btn btn-outline-success rounded-pill px-3 mx-2" style="background-color: whitesmoke">
+                    <a href="https://www.baemin.com/"><font color="#52BEBB">배달의민족</font> <font color="black">주문하기</font></a>
                 </span>
-                <span class="btn btn-outline-primary rounded-pill px-3 mx-2">
-                    <a href="https://www.coupangeats.com/"><font color="#00008b">쿠팡이츠 주문하기</font></a>
+                <span class="btn btn-outline-danger rounded-pill px-3 mx-2" style="background-color: whitesmoke">
+                    <a href="https://www.coupangeats.com/"><font color="#EC6F4B">쿠</font><font color="#FACB48">팡</font><font color="#A0CE58">이</font><font color="#5CBBDD">츠</font> <font color="black">주문하기</font></a>
                 </span>
 
             </form>
@@ -109,8 +114,6 @@
                     <label class="m-1 pick"><input type="radio" name="answer" value="1" required> 네</label><br />
                     <label class="m-1"><input type="radio" name="answer" value="0" required> 아니오</label><br />
                     <label class="m-1"><input type="radio" name="answer" value="0.5" required> 모르겠습니다.</label><br />
-                    <label class="m-1"><input type="radio" name="answer" value="0.75" required> 아마 그럴겁니다.</label><br />
-                    <label class="m-1"><input type="radio" name="answer" value="0.25" required> 아마 아닐겁니다.</label><br />
                 </div>
             </div>
         <br/>
@@ -123,16 +126,11 @@
 
 {% endif %}
 </div>
-<form class="text-center">
-    <div class="btn btn-outline-danger rounded-pill px-5">
-        <a href="http://127.0.0.1:5000/"> 다시하기</a>
-    </div>
-</form>
-<br>
-<br>
-<br>
+
 <div class="text-center">
-    (주)비주얼인싸
+    made by 비주얼인싸
+<br>
+<br>
 </div>
 </body>
 </html>
